@@ -1,10 +1,9 @@
-import React from "react";
 import useVisits from "./hooks/useVisits";
 
 type Props = {};
 
-const Homepage = (props: Props) => {
-  const { visits, isFirstTime } = useVisits();
+const Homepage = (_props: Props) => {
+  const { isFirstTime } = useVisits();
 
   return (
     <>
