@@ -37,7 +37,6 @@ body {
   /*Height*/
   min-height: 100vh;
   min-height: 100dvh; /*Modern fix*/
-  min-height: -webkit-fill-available; /*iOS Safari*/
 
   /*Width*/
   min-width: 100%;
