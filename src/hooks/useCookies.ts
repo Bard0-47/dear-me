@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 const useCookies = () => {
-    const _COOKIES_KEY = "dear-me-allow-cookies"
+    const COOKIES_KEY = "dear-me-allow-cookies"
     let areCookiesAllowed = false;
 
     const executed = useRef(false);
@@ -11,7 +11,10 @@ const useCookies = () => {
         return;
         }
 
+        executed.current = true;
 
+        const cookiesKey = localStorage.getItem(COOKIES_KEY);
+        console.log(cookiesKey);
     }, [])
     
     return areCookiesAllowed
