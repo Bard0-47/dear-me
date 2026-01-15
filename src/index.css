@@ -35,7 +35,7 @@ body {
   /* * Background */
   background-color: var(--color-base);
   box-shadow: inset 0 0 250px 10px var(--color-shadow);
-  background-image: url(src/assets/wallpapers/flowers.png);
+  background-image: url(assets/wallpapers/flowers.png);
   
 
   /*Height*/
