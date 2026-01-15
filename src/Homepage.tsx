@@ -4,7 +4,7 @@ import useCookies from "./hooks/useCookies"
 type Props = {};
 
 const Homepage = (_props: Props) => {
-  const { isFirstTime } = useVisits();
+  const { isFirstTime: _isFirstTime } = useVisits();
   const areCookiesAllowed  = useCookies();
 
   return (

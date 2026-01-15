@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const useCookies = () => {
-    const COOKIES_KEY = "dear-me-allow-cookies"
+    const _COOKIES_KEY = "dear-me-allow-cookies"
     let areCookiesAllowed = false;
 
     const executed = useRef(false);
