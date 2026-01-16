@@ -1,23 +1,38 @@
-import { useEffect, useRef } from "react";
+import { useState } from "react";
 
 const useCookies = () => {
     const COOKIES_KEY = "dear-me-allow-cookies"
-    let areCookiesAllowed = false;
+    /* Get current selected option */
+    const [areCookiesAllowed, setAreCookiesAllowed] = useState<boolean>(() => {
+        const savedValue = localStorage.getItem(COOKIES_KEY);
+        return savedValue ? JSON.parse(savedValue) : false;
+    })
 
-    const executed = useRef(false);
-
-    useEffect(() => {
-        if (executed.current) {
-        return;
-        }
-
-        executed.current = true;
-
-        const cookiesKey = localStorage.getItem(COOKIES_KEY);
-        console.log(cookiesKey);
-    }, [])
+    /* Functions */
+    const allowCookies = () => {
+        setAreCookiesAllowed(true);
+        localStorage.setItem(COOKIES_KEY, JSON.stringify(true));
+    }
     
-    return areCookiesAllowed
+    const denyCookies = () => {
+        setAreCookiesAllowed(false);
+        localStorage.setItem(COOKIES_KEY, JSON.stringify(false));
+    };
+
+    const toggleCookies = () => {
+        setAreCookiesAllowed(prev => {
+            const newValue = !prev;
+            localStorage.setItem(COOKIES_KEY, JSON.stringify(newValue));
+            return newValue;
+        });
+    };
+
+    return { 
+        areCookiesAllowed, 
+        allowCookies,
+        denyCookies,
+        toggleCookies
+    }
 }
 
 export default useCookies
